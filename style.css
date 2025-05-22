@@ -10,14 +10,14 @@ body {
   position: relative;
 }
 
-/* BACK LAYER — slightly darker for Y2K peek */
+/* BACK LAYER — Y2K peek */
 .background-layer {
   position: absolute;
   width: 94vw;
   height: 89vh;
   top: 60px;
   left: 59px;
-  background-color: #D8D6CC; /* slightly darker greige */
+  background-color: #D8D6CC;
   border-radius: 12px;
   border: 1px solid #d1cec1;
   z-index: 0;
@@ -38,7 +38,62 @@ body {
   overflow: hidden;
 }
 
-/* Chat space */
+/* Header strip with gradient */
+.header-strip {
+  position: relative;
+  background: linear-gradient(to bottom, #ffffff 0%, #f4f4ec 100%);
+  padding: 24px 32px 12px 32px;
+  border-bottom: 1px solid #ddd8c9;
+  z-index: 1;
+}
+
+/* Lisa + Atoms layout */
+.lisa-heading {
+  display: flex;
+  flex-direction: column;
+}
+
+.lisa-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1;
+}
+
+.lisa-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 67px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1;
+  color: #000;
+  letter-spacing: 0.25px;
+}
+
+.atoms-icon {
+  height: 21px;
+  width: auto;
+  animation: floaty 3.5s ease-in-out infinite;
+  position: relative;
+  top: -2px;
+}
+
+@keyframes floaty {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.lisa-subtitle {
+  font-family: 'EB Garamond', serif;
+  font-size: 17px;
+  font-weight: 400;
+  margin-top: 6px;
+  color: #000;
+  letter-spacing: 0.3px;
+}
+
+/* Chat area */
 .chat-area {
   flex: 1;
   padding: 32px;
@@ -56,16 +111,15 @@ body {
   background-color: #ddd8c9;
 }
 
-/* Static intro message */
+/* Static intro */
 .bot-intro {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 1rem;
-  padding: 2px 32px 24px 32px; ;
+  padding: 40px 32px 24px 32px;
   position: relative;
 }
-
 
 .bot-icon {
   width: 14px;
@@ -75,9 +129,10 @@ body {
   flex-shrink: 0;
 }
 
+/* Input row */
 .input-row {
   display: flex;
-  align-items: center; /* aligns input + button on the same line */
+  align-items: center;
   padding: 8px 32px 32px 32px;
   position: relative;
 }
@@ -87,7 +142,7 @@ body {
   position: absolute;
   top: 0;
   left: 32px;
-  right: 32px; /* leaves space so the line doesn’t go under the button */
+  right: 32px;
   height: 1px;
   background-color: #ddd8c9;
 }
@@ -102,7 +157,7 @@ input[type="text"] {
   font-weight: 400;
   color: #222;
   outline: none;
-  margin-top: 4px; /* small nudge to visually center */
+  margin-top: 4px;
 }
 
 input::placeholder {
@@ -111,7 +166,7 @@ input::placeholder {
   font-weight: 400;
 }
 
-/* Arrow button */
+/* Send button */
 button {
   width: 36px;
   height: 36px;
@@ -129,47 +184,3 @@ button {
   justify-content: center;
 }
 
-/* Hello line spacing fix */
-.bot-intro {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1rem;
-  padding: 40px 32px 24px 32px; /* 🫧 added top space */
-}
-
-.lisa-heading {
-  padding: 24px 32px 8px 32px;
-}
-
-.lisa-title {
-  font-family: 'EB Garamond', serif;
-  font-size: 67px;
-  font-weight: 500; /* EB Garamond Medium */
-  margin: 0;
-  line-height: 1;
-  color: #000;
-  letter-spacing: 0.25px;
-}
-
-.lisa-subtitle {
-  font-family: 'EB Garamond', serif;
-  font-size: 17px;
-  font-weight: 400;
-  margin-top: 6px;
-  color: #000;
-  letter-spacing: 0.3px;
-}
-
-/* Floating atoms */
-.atoms-icon {
-  height: 21px;
-  width: auto;
-  animation: floaty 3.5s ease-in-out infinite;
-}
-
-@keyframes floaty {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-6px); }
-  100% { transform: translateY(0); }
-}
