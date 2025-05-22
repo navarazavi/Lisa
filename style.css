@@ -87,7 +87,7 @@ body {
   position: absolute;
   top: 0;
   left: 32px;
-  right: 68px; /* leaves space so the line doesn’t go under the button */
+  right: 32px; /* leaves space so the line doesn’t go under the button */
   height: 1px;
   background-color: #ddd8c9;
 }
