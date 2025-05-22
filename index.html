@@ -8,31 +8,44 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Y2K shadow layer -->
   <div class="background-layer"></div>
 
+  <!-- Lisa + atoms (OUTSIDE the card) -->
+  <div class="lisa-external-header">
+    <div class="lisa-logo-row">
+      <h1 class="lisa-title">Lisa</h1>
+      <img src="atoms.png" alt="Atoms" class="atoms-icon" />
+    </div>
+  </div>
+
+  <!-- Main floating chat UI -->
   <div class="main-window">
 
+    <!-- Header strip inside the card -->
     <div class="header-strip">
-      <div class="lisa-heading">
-        <div class="lisa-logo-row">
-          <h1 class="lisa-title">Lisa</h1>
-          <img src="atoms.png" alt="Atoms" class="atoms-icon">
-        </div>
-        <p class="lisa-subtitle">Intelligent reasoning model trained to assist with laboratory operations.</p>
-      </div>
+      <p class="lisa-subtitle">Intelligent reasoning model trained to assist with laboratory operations.</p>
     </div>
 
+    <!-- Chat area -->
     <div class="chat-area"></div>
 
+    <!-- Bot intro -->
     <div class="bot-intro">
       <div class="bot-icon"></div>
       <p>Hello! Here to help. Got any questions?</p>
     </div>
 
+    <!-- Input row -->
     <div class="input-row">
       <input type="text" placeholder="Type a message . . ." />
       <button>↑</button>
     </div>
+
+  </div>
+</body>
+</html>
+
 
   </div>
 </body>
