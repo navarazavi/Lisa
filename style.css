@@ -6,7 +6,7 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
 }
 
@@ -14,52 +14,30 @@ body {
 .background-layer {
   position: absolute;
   width: 94vw;
-  height: 89vh;
-  top: 60px;
+  height: 85vh;
+  top: 120px;
   left: 59px;
-  background-color: #A2A19C;
+  background-color: #D8D6CC;
   border-radius: 12px;
   border: 1px solid #d1cec1;
   z-index: 0;
 }
 
-/* FRONT LAYER — main UI */
-.main-window {
-  position: relative;
-  width: 94vw;
-  height: 89vh;
-  background-color: #EAEBE3;
-  border-radius: 12px;
-  border: 2px solid #A2A19C;
-  z-index: 2.75;
+/* Lisa outside the card */
+.lisa-external-header {
+  padding: 24px 40px 0 40px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-}
-
-.header-strip {
-  position: relative;
-  padding: 12px 32px 4px 32px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(244, 244, 236, 0.85));
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); /* for Safari */
-  z-index: 1;
-}
-
-
-
-/* Lisa + Atoms layout */
-.lisa-heading {
-  display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  background: #f4f4ec;
+  z-index: 3;
 }
 
 .lisa-logo-row {
   display: flex;
   align-items: center;
-  gap: 2.5px;
-  line-height: 1;
+  gap: 4px;
 }
 
 .lisa-title {
@@ -69,11 +47,10 @@ body {
   margin: 0;
   line-height: 1;
   color: #000;
-  letter-spacing: 0.25px;
 }
 
 .atoms-icon {
-  height: 149px;
+  height: 42px;
   width: auto;
   animation: floaty 3.5s ease-in-out infinite;
   position: relative;
@@ -86,11 +63,40 @@ body {
   100% { transform: translateY(0); }
 }
 
+/* FRONT LAYER — main UI */
+.main-window {
+  position: relative;
+  width: 94vw;
+  height: 85vh;
+  margin-top: 0;
+  background-color: #EAEBE3;
+  border-radius: 12px;
+  border: 1px solid #d4d2c5;
+  z-index: 2.75;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Claude-style header inside card */
+.header-strip {
+  position: relative;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), rgba(244, 244, 236, 0.95));
+  padding: 8px 32px 4px 32px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1;
+  border-bottom: 1px solid #ddd8c9;
+}
+
+/* Claude-style subtitle */
 .lisa-subtitle {
   font-family: 'EB Garamond', serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 400;
-  margin-top: 3px;
+  margin: 0;
   color: #000;
   letter-spacing: 0.3px;
 }
@@ -98,17 +104,28 @@ body {
 /* Chat area */
 .chat-area {
   flex: 1;
-  padding: 16px 32px 32px 32px;
+  padding: 24px 32px;
   position: relative;
 }
 
-/* Static intro */
+/* Divider ¾ way up */
+.chat-area::after {
+  content: "";
+  position: absolute;
+  top: 21.5%;
+  left: 32px;
+  right: 32px;
+  height: 1px;
+  background-color: #ddd8c9;
+}
+
+/* Static intro message */
 .bot-intro {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 1rem;
-  padding: 30px 32px 20px 32px;
+  padding: 40px 32px 24px 32px;
   position: relative;
 }
 
@@ -134,7 +151,7 @@ body {
   top: 0;
   left: 32px;
   right: 32px;
-  height: 1.5px;
+  height: 1px;
   background-color: #ddd8c9;
 }
 
@@ -157,7 +174,7 @@ input::placeholder {
   font-weight: 400;
 }
 
-/* Send button */
+/* Arrow button */
 button {
   width: 36px;
   height: 36px;
@@ -174,4 +191,5 @@ button {
   align-items: center;
   justify-content: center;
 }
+
 
