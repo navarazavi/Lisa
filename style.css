@@ -138,10 +138,24 @@ button {
   padding: 40px 32px 24px 32px; /* 🫧 added top space */
 }
 
-.lisa-logo {
-  width: auto;
-  max-width: 220px;
-  height: auto;
-  margin: 32px 0 8px 32px;
-  display: block;
+.lisa-heading {
+  padding: 32px 32px 16px 32px;
+}
+
+.lisa-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 47px;
+  font-weight: 500; /* EB Garamond Medium */
+  margin: 0;
+  line-height: 1;
+  color: #000;
+}
+
+.lisa-subtitle {
+  font-family: 'EB Garamond', serif;
+  font-size: 7px;
+  font-weight: 400;
+  margin-top: 6px;
+  color: #000;
+  letter-spacing: 0.3px;
 }
