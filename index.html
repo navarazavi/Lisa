@@ -8,29 +8,28 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="header">
-    <div class="title-bar">
-      <h1>Lisa</h1>
+  <div class="container">
+    <div class="header">
+      <div class="title-box">
+        <h1>Lisa</h1>
+        <p class="subtitle">Intelligent reasoning model trained to assist with laboratory operations.</p>
+      </div>
     </div>
-    <p class="powered">Powered by GPT-4</p>
-  </div>
 
-  <div class="chat-window" id="messages">
-    <!-- Empty on load -->
-  </div>
+    <div class="chat-window" id="messages">
+      <!-- Chat history will appear here -->
+    </div>
 
-  <!-- Bot intro message above input -->
-  <div class="bot-intro">
-    <div class="bot-icon"></div>
-    <p>Hello! Here to help. Got any questions?</p>
-  </div>
+    <div class="bot-intro">
+      <div class="bot-icon"></div>
+      <p>Hello! Here to help. Got any questions?</p>
+    </div>
 
-  <div class="input-container">
-    <input type="text" placeholder="Type a message . . ." />
-    <button>↑</button>
+    <div class="input-container">
+      <input type="text" placeholder="Type a message . . ." />
+      <button>↑</button>
+    </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
-
