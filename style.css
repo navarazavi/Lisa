@@ -1,55 +1,56 @@
+/* Base setup */
 body {
   margin: 0;
   background-color: #f4f4ec;
   font-family: 'EB Garamond', serif;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: start;
-  height: 100vh;
-  padding: 60px;
+  align-items: center;
   position: relative;
 }
 
-.outer-layer {
+/* BACK LAYER — subtle, tight offset */
+.background-layer {
   position: absolute;
-  top: 72px;
-  left: 72px;
-  width: 800px;
-  height: 90vh;
+  width: 94vw;
+  height: 92vh;
+  top: 52px;
+  left: 52px;
   background-color: #f0efe5;
-  border: 1px solid #d4d2c5;
   border-radius: 12px;
+  border: 1px solid #dad7cb;
   z-index: 0;
 }
 
-.container {
-  width: 800px;
-  height: 90vh;
+/* FRONT LAYER — primary card */
+.main-window {
+  position: relative;
+  width: 94vw;
+  height: 92vh;
   background-color: #f0efe5;
   border-radius: 12px;
   border: 1px solid #d4d2c5;
   z-index: 1;
-  position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
 }
 
-.chat-window {
+/* Chat space */
+.chat-area {
   flex: 1;
-  overflow-y: auto;
-  padding: 20px 28px;
-  background-color: #f0efe5;
-  font-size: 1rem;
-  line-height: 1.5;
+  padding: 32px;
 }
 
+/* Static intro message */
 .bot-intro {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 0 28px 12px 28px;
   font-size: 1rem;
-  background-color: #f0efe5;
+  padding: 0 32px 16px 32px;
 }
 
 .bot-icon {
@@ -60,11 +61,11 @@ body {
   flex-shrink: 0;
 }
 
-.input-container {
+/* Bottom input area */
+.input-row {
   display: flex;
   align-items: center;
-  background-color: #f0efe5;
-  padding: 10px 28px 20px 28px;
+  padding: 0 32px 32px 32px;
 }
 
 input[type="text"] {
@@ -72,28 +73,30 @@ input[type="text"] {
   padding: 0;
   font-size: 1rem;
   border: none;
-  outline: none;
+  background-color: #f0efe5;
   font-family: 'EB Garamond', serif;
   font-weight: 500;
-  background-color: #f0efe5;
-  color: #333;
+  color: #222;
+  outline: none;
 }
 
 input::placeholder {
   color: #999;
 }
 
+/* Perfect circular send button */
 button {
-  margin-left: 10px;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
+  margin-left: 12px;
   font-size: 1.2rem;
-  cursor: pointer;
   background-color: #dddacb;
   border: none;
   border-radius: 50%;
   font-family: 'EB Garamond', serif;
   font-weight: 500;
   color: #222;
+  cursor: pointer;
 }
+
 
