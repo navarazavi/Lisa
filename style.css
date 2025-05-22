@@ -42,7 +42,7 @@ body {
   position: relative;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), #f4f4ec);
   padding: 20px 32px 8px 32px;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(2px); /* for Safari */
   border-bottom: 1px solid #ddd8c9;
   z-index: 1;
@@ -73,7 +73,7 @@ body {
 }
 
 .atoms-icon {
-  height: 39px;
+  height: 59px;
   width: auto;
   animation: floaty 3.5s ease-in-out infinite;
   position: relative;
