@@ -45,6 +45,9 @@
       justify-content: flex-end;
       height: calc(100vh - 170px);
       padding: 0 30px;
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
     }
 
     .chat-bubble {
@@ -76,7 +79,8 @@
       padding: 12px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-end;
+      gap: 12px;
       box-shadow: 0 -0.5px 3px rgba(0, 0, 0, 0.05);
     }
 
@@ -89,7 +93,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0;
       cursor: pointer;
       box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
       font-size: 16px;
@@ -105,7 +108,6 @@
       font-family: 'EB Garamond', serif;
       font-size: 16px;
       background-color: #f4f4ec;
-      margin-left: 12px;
     }
 
     input[type="text"]:focus {
@@ -124,8 +126,8 @@
   </main>
 
   <footer>
-    <button class="send-button" aria-label="Send message">↑</button>
     <input type="text" placeholder="Type a message . . ." />
+    <button class="send-button" aria-label="Send message">↑</button>
   </footer>
 </body>
 </html>
