@@ -16,7 +16,7 @@ body {
   width: 94vw;
   height: 89vh;
   top: 52px;
-  left: 52px;
+  left: 55px;
   background-color: #D8D6CC; /* slightly darker greige */
   border-radius: 12px;
   border: 1px solid #d1cec1;
@@ -27,7 +27,7 @@ body {
 .main-window {
   position: relative;
   width: 94vw;
-  height: 91.5vh;
+  height: 87.5vh;
   background-color: #EAEBE3;
   border-radius: 12px;
   border: 1px solid #d4d2c5;
