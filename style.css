@@ -10,20 +10,20 @@ body {
   position: relative;
 }
 
-/* BACK LAYER — subtle, tight offset */
+/* BACK LAYER — slightly darker for Y2K peek */
 .background-layer {
   position: absolute;
   width: 94vw;
   height: 92vh;
   top: 52px;
   left: 52px;
-  background-color: #f0efe5;
+  background-color: #e9e7dc; /* slightly darker greige */
   border-radius: 12px;
-  border: 1px solid #dad7cb;
+  border: 1px solid #d1cec1;
   z-index: 0;
 }
 
-/* FRONT LAYER — primary card */
+/* FRONT LAYER — main UI */
 .main-window {
   position: relative;
   width: 94vw;
@@ -42,6 +42,18 @@ body {
 .chat-area {
   flex: 1;
   padding: 32px;
+  position: relative;
+}
+
+/* Divider ¾ way up */
+.chat-area::after {
+  content: "";
+  position: absolute;
+  bottom: 25%;
+  left: 32px;
+  right: 32px;
+  height: 1px;
+  background-color: #ddd8c9;
 }
 
 /* Static intro message */
@@ -51,6 +63,18 @@ body {
   gap: 10px;
   font-size: 1rem;
   padding: 0 32px 16px 32px;
+  position: relative;
+}
+
+/* Line below bot intro */
+.bot-intro::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 32px;
+  right: 32px;
+  height: 1px;
+  background-color: #ddd8c9;
 }
 
 .bot-icon {
@@ -61,11 +85,23 @@ body {
   flex-shrink: 0;
 }
 
-/* Bottom input area */
+/* Input row at bottom */
 .input-row {
   display: flex;
   align-items: center;
   padding: 0 32px 32px 32px;
+  position: relative;
+}
+
+/* Line above input */
+.input-row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 32px;
+  right: 32px;
+  height: 1px;
+  background-color: #ddd8c9;
 }
 
 input[type="text"] {
@@ -84,7 +120,7 @@ input::placeholder {
   color: #999;
 }
 
-/* Perfect circular send button */
+/* Circular send button */
 button {
   width: 36px;
   height: 36px;
@@ -98,5 +134,4 @@ button {
   color: #222;
   cursor: pointer;
 }
-
 
