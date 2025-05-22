@@ -41,7 +41,7 @@ body {
 .header-strip {
   position: relative;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), #f4f4ec);
-  padding: 20px 32px 8px 32px;
+  padding: 12px 32px 4px 32px;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(5px); /* for Safari */
   /*border-bottom: 1px solid #ddd8c9; */
@@ -58,7 +58,7 @@ body {
 .lisa-logo-row {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2.5px;
   line-height: 1;
 }
 
@@ -73,7 +73,7 @@ body {
 }
 
 .atoms-icon {
-  height: 129px;
+  height: 149px;
   width: auto;
   animation: floaty 3.5s ease-in-out infinite;
   position: relative;
@@ -88,9 +88,9 @@ body {
 
 .lisa-subtitle {
   font-family: 'EB Garamond', serif;
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 400;
-  margin-top: 6px;
+  margin-top: 3px;
   color: #000;
   letter-spacing: 0.3px;
 }
