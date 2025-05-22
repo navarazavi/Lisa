@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lisa UI</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -13,25 +12,26 @@
       font-family: 'EB Garamond', serif;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding-top: 40px;
+      align-items: flex-start;
+      padding: 40px;
+      color: #111;
     }
 
-    .logo-block {
+    .logo-row {
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
 
-    .logo-block h1 {
+    .logo-row h1 {
       font-size: 64px;
-      margin: 0;
       font-weight: 500;
+      margin: 0;
     }
 
-    .logo-block img {
-      height: 42px;
+    .logo-row img {
+      height: 40px;
       animation: floaty 3.5s ease-in-out infinite;
     }
 
@@ -41,56 +41,46 @@
       100% { transform: translateY(0); }
     }
 
-    .chat-card {
-      background: #eaebe3;
-      border: 1px solid #d4d2c5;
-      border-radius: 10px;
-      width: 640px;
-      height: 720px;
-      box-shadow: 8px 8px 0 #aaa8a0;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    .chat-header {
-      background: linear-gradient(to bottom, rgba(255,255,255,0.85), #f4f4ec);
+    .strip {
+      width: 100%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), #f4f4ec);
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
       border-bottom: 1px solid #ddd8c9;
-      padding: 12px 20px 10px 20px;
+      padding: 8px 0 8px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-
-    .chat-header p {
       font-size: 13px;
-      margin: 0;
+      padding-left: 6px;
+      padding-right: 20px;
     }
 
-    .chat-header .label {
+    .claude-label {
       display: flex;
       align-items: center;
       font-size: 16px;
     }
 
-    .chat-header .label img {
+    .claude-label img {
       height: 16px;
       margin-right: 6px;
     }
 
     .chat-area {
       flex: 1;
-      padding: 32px 20px;
+      width: 100%;
+      padding: 40px 20px;
+      min-height: 400px;
+      background: #eaebe3;
     }
 
     .bot-intro {
       display: flex;
       align-items: center;
-      font-size: 1rem;
-      padding: 0 20px 12px 20px;
       gap: 10px;
+      padding: 12px 20px 6px 20px;
+      font-size: 1rem;
     }
 
     .bot-icon {
@@ -101,11 +91,12 @@
     }
 
     .input-row {
-      border-top: 1px solid #ddd8c9;
-      padding: 12px 20px 20px 20px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      width: 100%;
+      border-top: 1px solid #ddd8c9;
+      padding: 12px 20px 20px 20px;
+      background: #eaebe3;
     }
 
     input[type="text"] {
@@ -132,35 +123,36 @@
       cursor: pointer;
       font-family: 'EB Garamond', serif;
       color: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   </style>
 </head>
 <body>
-  <div class="logo-block">
+  <div class="logo-row">
     <h1>Lisa</h1>
     <img src="atoms.png" alt="Atoms icon" />
   </div>
 
-  <div class="chat-card">
-    <div class="chat-header">
-      <p>Intelligent reasoning model trained to assist with laboratory operations.</p>
-      <div class="label">
-        <img src="claude-icon.svg" alt="Claude icon" />
-        <span><strong>Claude</strong> Sonnet 4</span>
-      </div>
+  <div class="strip">
+    <p>Intelligent reasoning model trained to assist with laboratory operations.</p>
+    <div class="claude-label">
+      <img src="claude-icon.svg" alt="Claude icon" />
+      <span><strong>Claude</strong> Sonnet 4</span>
     </div>
+  </div>
 
-    <div class="chat-area"></div>
+  <div class="chat-area"></div>
 
-    <div class="bot-intro">
-      <div class="bot-icon"></div>
-      <p>Hello! Here to help. Got any questions?</p>
-    </div>
+  <div class="bot-intro">
+    <div class="bot-icon"></div>
+    <p>Hello! Here to help. Got any questions?</p>
+  </div>
 
-    <div class="input-row">
-      <input type="text" placeholder="Type a message . . ." />
-      <button>↑</button>
-    </div>
+  <div class="input-row">
+    <input type="text" placeholder="Type a message . . ." />
+    <button>↑</button>
   </div>
 </body>
 </html>
