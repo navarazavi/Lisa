@@ -163,7 +163,7 @@ button {
 
 /* Floating atoms */
 .atoms-icon {
-  height: 34px;
+  height: 21px;
   width: auto;
   animation: floaty 3.5s ease-in-out infinite;
 }
