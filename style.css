@@ -137,3 +137,10 @@ button {
   font-size: 1rem;
   padding: 40px 32px 24px 32px; /* 🫧 added top space */
 }
+
+.lisa-logo {
+  width: auto;
+  height: 64px;
+  margin: 32px 0 0 32px;
+  display: block;
+}
