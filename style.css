@@ -78,7 +78,7 @@ body {
 .input-row {
   display: flex;
   align-items: flex-end;
-  padding: 16px 32px 32px 32px;
+  padding: 10px 32px 32px 32px;
   position: relative;
   flex-direction: column;
 }
@@ -110,7 +110,8 @@ input[type="text"] {
 
 input::placeholder {
   color: #999;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 400;
 }
 
 /* Adjust button to hug the corner naturally */
