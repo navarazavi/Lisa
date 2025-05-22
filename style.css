@@ -17,7 +17,7 @@ body {
   height: 89vh;
   top: 60px;
   left: 59px;
-  background-color: #D8D6CC;
+  background-color: #A2A19C;
   border-radius: 12px;
   border: 1px solid #d1cec1;
   z-index: 0;
@@ -30,7 +30,7 @@ body {
   height: 89vh;
   background-color: #EAEBE3;
   border-radius: 12px;
-  border: 1px solid #d4d2c5;
+  border: 1px solid #A2A19C;
   z-index: 2.75;
   display: flex;
   flex-direction: column;
@@ -73,7 +73,7 @@ body {
 }
 
 .atoms-icon {
-  height: 59px;
+  height: 89px;
   width: auto;
   animation: floaty 3.5s ease-in-out infinite;
   position: relative;
@@ -100,17 +100,6 @@ body {
   flex: 1;
   padding: 16px 32px 32px 32px;
   position: relative;
-}
-
-/* Divider ¾ way up */
-.chat-area::after {
-  content: "";
-  position: absolute;
-  top: 21.5%;
-  left: 32px;
-  right: 32px;
-  height: 1px;
-  background-color: #ddd8c9;
 }
 
 /* Static intro */
