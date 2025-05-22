@@ -66,16 +66,6 @@ body {
   position: relative;
 }
 
-/* Line below bot intro */
-.bot-intro::after {
-  content: "";
-  position: absolute;
-  bottom: 5.5;
-  left: 32px;
-  right: 32px;
-  height: 1px;
-  background-color: #ddd8c9;
-}
 
 .bot-icon {
   width: 14px;
