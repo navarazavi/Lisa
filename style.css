@@ -62,7 +62,7 @@ body {
   align-items: center;
   gap: 10px;
   font-size: 1rem;
-  padding: 0 32px 16px 32px;
+  padding: 16px 32px 24px 32px; ;
   position: relative;
 }
 
@@ -87,9 +87,10 @@ body {
 
 .input-row {
   display: flex;
-  align-items: center;
-  padding: 0 32px 32px 32px;
+  align-items: flex-end;
+  padding: 16px 32px 32px 32px;
   position: relative;
+  flex-direction: column;
 }
 
 .input-row::before {
@@ -102,29 +103,32 @@ body {
   background-color: #ddd8c9;
 }
 
+/* Input now looks like resting text */
 input[type="text"] {
-  flex: 1;
-  padding: 8px 0;
+  width: 100%;
   font-size: 1rem;
-  border: none;
-  background-color: #f0efe5; /* match background */
   font-family: 'EB Garamond', serif;
   font-weight: 400;
+  border: none;
+  background: transparent;
   color: #222;
   outline: none;
+  padding: 0;
+  margin-top: 12px;
   line-height: 1.4;
 }
 
 input::placeholder {
   color: #999;
-  font-weight: 400;
+  font-style: italic;
 }
 
-/* Circular send button */
+/* Adjust button to hug the corner naturally */
 button {
+  align-self: flex-end;
+  margin-top: 12px;
   width: 36px;
   height: 36px;
-  margin-left: 12px;
   font-size: 1.2rem;
   background-color: #dddacb;
   border: none;
