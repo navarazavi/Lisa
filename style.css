@@ -17,7 +17,7 @@ body {
   height: 92vh;
   top: 52px;
   left: 52px;
-  background-color: #e9e7dc; /* slightly darker greige */
+  background-color: #E5E2D4; /* slightly darker greige */
   border-radius: 12px;
   border: 1px solid #d1cec1;
   z-index: 0;
@@ -27,8 +27,8 @@ body {
 .main-window {
   position: relative;
   width: 94vw;
-  height: 92vh;
-  background-color: #f0efe5;
+  height: 93vh;
+  background-color: #EAEBE3;
   border-radius: 12px;
   border: 1px solid #d4d2c5;
   z-index: 1;
@@ -49,7 +49,7 @@ body {
 .chat-area::after {
   content: "";
   position: absolute;
-  bottom: 25%;
+  bottom: 75%;
   left: 32px;
   right: 32px;
   height: 1px;
@@ -70,7 +70,7 @@ body {
 .bot-intro::after {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: 3;
   left: 32px;
   right: 32px;
   height: 1px;
