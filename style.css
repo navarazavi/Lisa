@@ -77,10 +77,9 @@ body {
 
 .input-row {
   display: flex;
-  align-items: flex-end;
-  padding: 10px 32px 32px 32px;
+  align-items: center; /* aligns input + button on the same line */
+  padding: 24px 32px 32px 32px;
   position: relative;
-  flex-direction: column;
 }
 
 .input-row::before {
@@ -88,24 +87,22 @@ body {
   position: absolute;
   top: 0;
   left: 32px;
-  right: 32px;
+  right: 68px; /* leaves space so the line doesn’t go under the button */
   height: 1px;
   background-color: #ddd8c9;
 }
 
-/* Input now looks like resting text */
 input[type="text"] {
-  width: 100%;
+  flex: 1;
+  padding: 0;
   font-size: 1rem;
+  border: none;
+  background-color: transparent;
   font-family: 'EB Garamond', serif;
   font-weight: 400;
-  border: none;
-  background: transparent;
   color: #222;
   outline: none;
-  padding: 0;
-  margin-top: 12px;
-  line-height: 1.4;
+  margin-top: 4px; /* small nudge to visually center */
 }
 
 input::placeholder {
@@ -114,12 +111,11 @@ input::placeholder {
   font-weight: 400;
 }
 
-/* Adjust button to hug the corner naturally */
+/* Arrow button */
 button {
-  align-self: flex-end;
-  margin-top: 12px;
   width: 36px;
   height: 36px;
+  margin-left: 12px;
   font-size: 1.2rem;
   background-color: #dddacb;
   border: none;
@@ -131,4 +127,13 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Hello line spacing fix */
+.bot-intro {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  padding: 40px 32px 24px 32px; /* 🫧 added top space */
 }
