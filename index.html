@@ -26,10 +26,29 @@
       align-items: flex-end;
     }
 
+    .logo-wrap {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+    }
+
     .logo {
       font-size: 69px;
       font-weight: medium;
       padding-bottom: 6px;
+    }
+
+    .atom-icon {
+      height: 38px;
+      opacity: 0.9;
+      animation: float 3s ease-in-out infinite;
+      padding-bottom: 6px;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0px); }
     }
 
     .claude-logo {
@@ -58,7 +77,6 @@
       display: flex;
       align-items: center;
       gap: 8px;
-
     }
 
     .chat-bubble::before {
@@ -119,12 +137,15 @@
 </head>
 <body>
   <header>
-    <div class="logo">Lisa</div>
+    <div class="logo-wrap">
+      <div class="logo">Lisa</div>
+      <img src="atom1.png" alt="Atom icon" class="atom-icon" />
+    </div>
     <img src="claude.png" alt="Claude Logo" class="claude-logo" />
   </header>
 
   <main>
-    <div class="chat-bubble"> I'm Lisa, your intelligent lab assistant. Got any questions?</div>
+    <div class="chat-bubble">I'm Lisa, your intelligent lab assistant. Got any questions?</div>
   </main>
 
   <footer>
