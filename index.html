@@ -15,15 +15,12 @@
 
     header {
       background: linear-gradient(to bottom, rgba(255, 255, 255, 0.75), #f4f4ec 96%);
-      padding: 30px;
+      padding: 0 30px;
       height: 110px;
       position: relative;
       box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.05);
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
-    }
-
-    .header-row {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
@@ -32,11 +29,13 @@
     .logo {
       font-size: 69px;
       font-weight: medium;
+      padding-bottom: 6px;
     }
 
     .claude-logo {
       height: 83px;
       opacity: 0.9;
+      padding-bottom: 6px;
     }
 
     main {
@@ -120,10 +119,8 @@
 </head>
 <body>
   <header>
-    <div class="header-row">
-      <div class="logo">Lisa</div>
-      <img src="claude.png" alt="Claude Logo" class="claude-logo" />
-    </div>
+    <div class="logo">Lisa</div>
+    <img src="claude.png" alt="Claude Logo" class="claude-logo" />
   </header>
 
   <main>
@@ -136,4 +133,5 @@
   </footer>
 </body>
 </html>
+
 
