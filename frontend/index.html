@@ -16,13 +16,14 @@
       height: 100vh;
     }
 
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  margin-left: 12px; /* 👈🏽 This scoots Lisa over */
+}
 
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      position: relative;
-    }
 
     .logo {
       font-size: 63px;
@@ -41,21 +42,23 @@
       filter: hue-rotate(330deg) saturate(2);
     }
 
-    .claude-logo {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 500;
-      background-color: #ffffff;
-      border: 0.55px solid #3F3F3F;
-      color: #111827;
-      padding: 4px 8px;
-      border-radius: 9999px;
-      position: absolute;
-      bottom: 10px;
-      right: 32px;
-      opacity: 0.9;
-      box-shadow: 0px 1px 2px rgba(0,0,0,0.03);
-    }
+.claude-logo {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #ffffff;
+  border: 0.55px solid #3F3F3F;
+  color: #111827;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  position: absolute;
+  top: 16px;
+  right: 32px;
+  opacity: 0.9;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.03);
+  z-index: 10;
+}
+
 
     .claude-logo .star {
       color: #D97858;
