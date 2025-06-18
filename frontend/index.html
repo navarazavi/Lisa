@@ -121,15 +121,38 @@
       border-top-left-radius: 0;
     }
 
-    .chat-scroll {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      flex: 1;
-      overflow-y: auto;
-      padding-right: 4px;
-      margin-bottom: 16px;
-    }
+   .chat-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 16px; /* Adds spacing between content and edge */
+  margin-bottom: 16px;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #3F3F3F transparent;
+}
+
+/* Chrome, Edge, Safari scrollbar customization */
+.chat-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb {
+  background-color: #3F3F3F;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.chat-scroll:hover::-webkit-scrollbar-thumb {
+  opacity: 1;
+}
+
 
     .typewriter {
       overflow: hidden;
