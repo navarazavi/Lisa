@@ -49,58 +49,62 @@ document.addEventListener("DOMContentLoaded", () => {
     chatBox.scrollTop = chatBox.scrollHeight;
   }
 
-  async function sendMessage() {
-    const message = userInput.value.trim();
-    if (!message) return;
+async function sendMessage() {
+  const message = userInput.value.trim();
+  if (!message) return;
 
-    addMessage(message, true);
-    userInput.value = "";
+  // Add user's message
+  const userBubble = document.createElement("div");
+  userBubble.classList.add("chat-bubble", "user");
+  userBubble.textContent = message;
+  chatBox.appendChild(userBubble);
+  chatBox.scrollTop = chatBox.scrollHeight;
 
-    const personalityIntro = `You are LISA: the Laboratory Inventory and Supply Chain Assistant. You're smart, witty, and designed to help with lab efficiency. Keep responses concise. You have this inventory:\n${inventoryData.map(item => `• ${item.date}: ${item.name} (${item.qty}, ${item.id})`).join("\n")}`;
+  userInput.value = "";
 
-    try {
-      const res = await fetch("/ask-lisa", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: `${personalityIntro}\nUser: ${message}` }),
-      });
+  const personalityIntro = `You are LISA: the Laboratory Inventory and Supply Chain Assistant. You're smart, witty, robotic, and designed to help with lab efficiency. Keep responses concise. You have this inventory:\n${inventoryData.map(item => `• ${item.date}: ${item.name} (${item.qty}, ${item.id})`).join("\n")}`;
 
-      const data = await res.json();
-      console.log("Response:", data);
+  try {
+    const res = await fetch("/ask-lisa", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: `${personalityIntro}\nUser: ${message}` }),
+    });
 
-      if (data.reply) {
-        const typingIndicator = document.createElement("div");
-        typingIndicator.classList.add("chat-bubble", "lisa", "typing");
-        typingIndicator.textContent = "Lisa is typing...";
-        chatBox.appendChild(typingIndicator);
-        chatBox.scrollTop = chatBox.scrollHeight;
+    const data = await res.json();
+    console.log("Response:", data);
 
-        setTimeout(() => {
-          typingIndicator.remove();
+    // Remove any old typing indicators (just in case)
+    document.querySelectorAll(".typing").forEach(el => el.remove());
 
-          const bubble = document.createElement("div");
-          bubble.className = "chat-bubble lisa";
-          bubble.style.whiteSpace = "pre-wrap";
-          bubble.style.wordBreak = "break-word";
-          chatBox.appendChild(bubble);
+    if (data.reply) {
+      const lisaBubble = document.createElement("div");
+      lisaBubble.classList.add("chat-bubble", "lisa");
+      chatBox.appendChild(lisaBubble);
+      chatBox.scrollTop = chatBox.scrollHeight;
 
-          let i = 0;
-          function typeWriter() {
-            if (i < data.reply.length) {
-              bubble.textContent += data.reply.charAt(i);
-              i++;
-              setTimeout(typeWriter, 20);
-            }
-          }
-          typeWriter();
-        }, 500);
-      } else {
-        addMessage("⚠️ Lisa didn’t reply.");
+      let i = 0;
+      function typeWriter() {
+        if (i < data.reply.length) {
+          lisaBubble.textContent += data.reply.charAt(i);
+          i++;
+          setTimeout(typeWriter, 20);
+        }
       }
-    } catch (err) {
-      console.error(err);
-      addMessage("⚠️ Something went wrong.");
+      typeWriter();
+    } else {
+      const errorBubble = document.createElement("div");
+      errorBubble.classList.add("chat-bubble", "lisa");
+      errorBubble.textContent = "⚠️ Lisa didn’t reply.";
+      chatBox.appendChild(errorBubble);
     }
+  } catch (err) {
+    console.error(err);
+    const failBubble = document.createElement("div");
+    failBubble.classList.add("chat-bubble", "lisa");
+    failBubble.textContent = "⚠️ Something went wrong.";
+    chatBox.appendChild(failBubble);
   }
-});
+}
+
 
