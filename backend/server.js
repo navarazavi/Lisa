@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const CLAUDE_API_KEY = process.env["lisa-env"]; // 👈 use the exact key name
+const CLAUDE_API_KEY = process.env["lisa-env"]; // ✅ Make sure this matches your Render env var name exactly
 
 app.use(cors());
 app.use(express.json());
@@ -17,7 +17,7 @@ app.use(express.json());
 // Static frontend serving
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-app.use(express.static(path.join(__dirname, "../frontend")));
+app.use(express.static(path.join(__dirname, "../frontend"))); // ✅ make sure you actually have a frontend folder with index.html in it
 
 // Claude API route
 app.post("/ask-lisa", async (req, res) => {
@@ -28,7 +28,7 @@ app.post("/ask-lisa", async (req, res) => {
     const response = await axios.post(
       "https://api.anthropic.com/v1/messages",
       {
-        model: "claude-3-sonnet-20240229",
+        model: "claude-3-opus-20240229", // ✅ changed from sonnet to opus
         max_tokens: 1024,
         temperature: 0.7,
         messages: [{ role: "user", content: message }],
