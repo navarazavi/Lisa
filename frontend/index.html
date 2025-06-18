@@ -153,24 +153,24 @@
   opacity: 1;
 }
 
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  animation: typewriter 2.8s steps(48, end), blinkOut 1.5s step-end 1 forwards;
+  border-right: 1.5px solid black;
+}
 
-    .typewriter {
-      overflow: hidden;
-      border-right: 1.5px solid black;
-      white-space: nowrap;
-      display: inline-block;
-      animation: typewriter 2.8s steps(48, end), blinkCursor 0.9s step-end 1;
-    }
+@keyframes blinkOut {
+  0%, 50% { border-right-color: rgba(0, 0, 0, 0.8); }
+  100% { border-right-color: transparent; }
+}
+
 
     @keyframes typewriter {
       from { width: 0; }
       to { width: 100%; }
     }
-
-@keyframes blinkCursorOnce {
-  0%, 49% { border-right-color: rgba(0, 0, 0, 0.75); }
-  50%, 100% { border-right-color: transparent; }
-}
 
 
     .intro-message {
