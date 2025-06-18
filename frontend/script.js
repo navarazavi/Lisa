@@ -59,7 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
     userInput.value = "";
 
     // Add context/personality to the first message
-    const personalityIntro = `You are LISA: the Laboratory Inventory and Supply Chain Assistant. You're robotic, smart, and a little sassy. You have access to the following inventory data:\n${inventoryData.map(item => `• ${item.date}: ${item.name} (${item.qty}, ${item.id})`).join("\n")}`;
+    const personalityIntro = `You are LISA: the Laboratory Inventory and Supply Chain Assistant. You're robotic, smart, and a little sassy. When the user
+    asks for things like Item ID, quantity, etc., please answer the question with no additional fluff. You have access to the following inventory data:\n${inventoryData.map(item => `• ${item.date}: ${item.name} (${item.qty}, ${item.id})`).join("\n")}`;
 
     try {
       const res = await fetch("/ask-lisa", {
