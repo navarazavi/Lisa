@@ -158,7 +158,7 @@
       border-right: 1.5px solid black;
       white-space: nowrap;
       display: inline-block;
-      animation: typewriter 2.8s steps(48, end), blinkCursor 0.9s step-end infinite;
+      animation: typewriter 2.8s steps(48, end), blinkCursor 0.9s step-end 1;
     }
 
     @keyframes typewriter {
@@ -166,10 +166,11 @@
       to { width: 100%; }
     }
 
-    @keyframes blinkCursor {
-      0%, 49% { border-right-color: rgba(0, 0, 0, 0.75); }
-      50%, 100% { border-right-color: transparent; }
-    }
+@keyframes blinkCursorOnce {
+  0%, 49% { border-right-color: rgba(0, 0, 0, 0.75); }
+  50%, 100% { border-right-color: transparent; }
+}
+
 
     .intro-message {
       font-family: 'Fira Code', monospace;
