@@ -10,21 +10,21 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const CLAUDE_API_KEY = process.env["lisa-env"]; // ✅ this must match your Render env var
+const CLAUDE_API_KEY = process.env["lisa-env"]; // ✅ This must match your Render env var name
 
-// Basic middleware
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Get dirname from ES module
+// __dirname workaround for ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Serve static frontend files
+// Serve static frontend
 app.use(express.static(path.join(__dirname, "../frontend")));
 
-// 💾 Load inventory data from JSON file
-const inventoryDataPath = path.join(__dirname, "inventoryData.json"); // or "data/inventoryData.json"
+// Load inventory from JSON
+const inventoryDataPath = path.join(__dirname, "inventoryData.json");
 let inventoryData = [];
 
 try {
@@ -32,17 +32,20 @@ try {
   inventoryData = JSON.parse(rawData);
   console.log(`📦 Loaded ${inventoryData.length} inventory items`);
 } catch (err) {
-  console.error("Failed to load inventory data:", err.message);
+  console.error("❌ Failed to load inventory data:", err.message);
 }
 
-// 💬 Claude chat route
+// Claude route
 app.post("/ask-lisa", async (req, res) => {
   const { message } = req.body;
   if (!message) return res.status(400).json({ error: "Message is required" });
 
-  const personalityIntro = `You are LISA: the Laboratory Inventory and Supply Chain Assistant. You're smart, witty, and designed to help with lab efficiency. Keep responses concise. You have this inventory:\n${inventoryData
-    .map((item) => `• ${item.date}: ${item.name} (${item.qty}, ${item.id})`)
-    .join("\n")}`;
+  const inventoryString = inventoryData.map(item => {
+    const { date = "unknown", name = "unnamed item", qty = "N/A", id = "N/A" } = item;
+    return `• ${date}: ${name} (${qty}, ${id})`;
+  }).join("\n");
+
+  const personalityIntro = `You are LISA: the Laboratory Inventory and Supply Chain Assistant. You're smart, witty, and designed to help with lab efficiency. Keep responses concise, less than 2 sentences is ideal. No bullet points or lists. You have this inventory:\n${inventoryString}`;
 
   try {
     const response = await axios.post(
@@ -74,7 +77,7 @@ app.post("/ask-lisa", async (req, res) => {
   }
 });
 
-// Catch-all to serve index.html
+// Fallback to frontend for all other routes
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
