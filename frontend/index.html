@@ -6,8 +6,6 @@
   <title>Lisa</title>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
-  <script src="chat.js"></script>
-
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -170,7 +168,6 @@
       cursor: pointer;
       font-size: 16px;
       color: #334155;
-  
     }
   </style>
 </head>
@@ -185,17 +182,19 @@
 
   <div class="main-wrap">
     <main>
-      <div class="chat-scroll">
+      <div class="chat-scroll" id="chat-box">
         <div class="chat-bubble">
           <span class="typewriter">Hello! I'm Lisa, your intelligent lab assistant. Got any questions?</span>
         </div>
       </div>
       <div class="input-row">
-        <input type="text" placeholder="Type a message . . ." />
-        <button class="send-button" aria-label="Send message">↑</button>
+        <input id="user-input" type="text" placeholder="Type a message . . ." />
+        <button class="send-button" id="send-btn" aria-label="Send message">↑</button>
       </div>
     </main>
   </div>
+
+  <script src="chat.js"></script>
 </body>
 </html>
 
