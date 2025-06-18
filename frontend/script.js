@@ -79,7 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
           typingIndicator.remove();
 
           const bubble = document.createElement("div");
-          bubble.classList.add("chat-bubble", "lisa");
+          bubble.className = "chat-bubble lisa";
+          bubble.style.whiteSpace = "pre-wrap";
+          bubble.style.wordBreak = "break-word";
           chatBox.appendChild(bubble);
 
           let i = 0;
@@ -101,4 +103,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
 
