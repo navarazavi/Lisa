@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const message = userInput.value.trim();
     if (!message) return;
 
+    console.log("Sending:", message); // 👈 log before sending
+
     addMessage(message, true); // user msg
     userInput.value = "";
 
@@ -32,22 +34,22 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const data = await res.json();
+      console.log("Response:", data); // 👈 log backend reply
+
       if (data.reply) {
-  const bubble = document.createElement("div");
-  bubble.classList.add("chat-bubble");
-  chatBox.appendChild(bubble);
+        const bubble = document.createElement("div");
+        bubble.classList.add("chat-bubble");
+        chatBox.appendChild(bubble);
 
-  let i = 0;
-  function typeWriter() {
-    if (i < data.reply.length) {
-      bubble.textContent += data.reply.charAt(i);
-      i++;
-      setTimeout(typeWriter, 20);
-    }
-  }
-  typeWriter();
-}
-
+        let i = 0;
+        function typeWriter() {
+          if (i < data.reply.length) {
+            bubble.textContent += data.reply.charAt(i);
+            i++;
+            setTimeout(typeWriter, 20);
+          }
+        }
+        typeWriter();
       } else {
         addMessage("⚠️ Lisa didn’t reply.");
       }
@@ -57,3 +59,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
