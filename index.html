@@ -26,12 +26,12 @@
       position: relative;
     }
   
-
-    .logo-wrap {
-      display: flex;
-      align-items: flex-end;
-      gap: 14px;
-    }
+.logo-wrap {
+  display: flex;
+  align-items: center; /* was flex-end, this centers vertically */
+  gap: 12px;
+  position: relative;
+}
 
     .logo {
       font-size: 63px;
@@ -44,13 +44,11 @@
       color: #D97858;
     }
 
-    .atom-icon {
-      height: 57px;
-      opacity: 0.8;
-      animation: float 3s ease-in-out infinite;
-      align-self: flex-start;
-      filter: hue-rotate(330deg) saturate(2);
-    }
+   .atom-icon {
+  height: 52px;
+  margin-top: 4px; /* slight bump down */
+  filter: hue-rotate(330deg) saturate(2);
+}
 
     .claude-logo {
       font-family: 'Inter', sans-serif;
