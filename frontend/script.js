@@ -33,7 +33,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const data = await res.json();
       if (data.reply) {
-        addMessage(data.reply);
+  const bubble = document.createElement("div");
+  bubble.classList.add("chat-bubble");
+  chatBox.appendChild(bubble);
+
+  let i = 0;
+  function typeWriter() {
+    if (i < data.reply.length) {
+      bubble.textContent += data.reply.charAt(i);
+      i++;
+      setTimeout(typeWriter, 20);
+    }
+  }
+  typeWriter();
+}
+
       } else {
         addMessage("⚠️ Lisa didn’t reply.");
       }
