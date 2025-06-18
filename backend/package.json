@@ -4,7 +4,8 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node backend/server.js"
+
   },
   "engines": {
     "node": "18.x"
