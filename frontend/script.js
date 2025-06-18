@@ -1,22 +1,27 @@
-<script>
-  const sendButton = document.getElementById("send-btn");
+document.addEventListener("DOMContentLoaded", () => {
+  const sendBtn = document.getElementById("send-btn");
   const userInput = document.getElementById("user-input");
-  const chatScroll = document.querySelector(".chat-scroll");
+  const chatBox = document.getElementById("chat-box");
 
-  function appendBubble(text, isUser = false) {
+  sendBtn.addEventListener("click", sendMessage);
+  userInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  function addMessage(text, isUser = false) {
     const bubble = document.createElement("div");
-    bubble.className = "chat-bubble";
-    if (isUser) bubble.style.backgroundColor = "#dcdcdc"; // Optional user styling
+    bubble.classList.add("chat-bubble");
+    if (isUser) bubble.style.backgroundColor = "#D9D9D9";
     bubble.textContent = text;
-    chatScroll.appendChild(bubble);
-    chatScroll.scrollTop = chatScroll.scrollHeight;
+    chatBox.appendChild(bubble);
+    chatBox.scrollTop = chatBox.scrollHeight;
   }
 
   async function sendMessage() {
     const message = userInput.value.trim();
     if (!message) return;
 
-    appendBubble(message, true);
+    addMessage(message, true); // user msg
     userInput.value = "";
 
     try {
@@ -27,16 +32,14 @@
       });
 
       const data = await res.json();
-      const reply = data.reply || "Hmm, something went wrong.";
-      appendBubble(reply);
+      if (data.reply) {
+        addMessage(data.reply);
+      } else {
+        addMessage("⚠️ Lisa didn’t reply.");
+      }
     } catch (err) {
       console.error(err);
-      appendBubble("Error talking to Lisa 😢");
+      addMessage("⚠️ Something went wrong.");
     }
   }
-
-  sendButton.addEventListener("click", sendMessage);
-  userInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") sendMessage();
-  });
-</script>
+});
