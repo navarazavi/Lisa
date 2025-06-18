@@ -23,7 +23,6 @@
       display: flex;
       justify-content: center;
       align-items: flex-end;
-      position: relative;
     }
 
     .logo-wrap {
@@ -59,11 +58,10 @@
       color: #111827;
       padding: 4px 8px;
       border-radius: 9999px;
-      position: absolute;
-      bottom: 10px;
-      right: 32px;
       opacity: 0.9;
       box-shadow: 0px 1px 2px rgba(0,0,0,0.03);
+      margin-left: 12px;
+      align-self: flex-end;
     }
 
     .claude-logo .star {
@@ -177,8 +175,8 @@
     <div class="logo-wrap">
       <div class="logo">L<span>i</span>SA</div>
       <img src="atoms.png" alt="Atom icon" class="atom-icon" />
+      <div class="claude-logo"><span class="star">✴︎</span> Claude Sonnet 4</div>
     </div>
-    <div class="claude-logo"><span class="star">✴︎</span> Claude Sonnet 4</div>
   </header>
 
   <div class="main-wrap">
