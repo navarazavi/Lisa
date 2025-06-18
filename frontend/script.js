@@ -41,15 +41,20 @@ window.addEventListener("load", () => {
     if (e.key === "Enter") sendMessage();
   });
 
-  async function sendMessage() {
-    const message = userInput.value.trim();
-    if (!message) return;
+ async function sendMessage() {
+  const message = userInput.value.trim();
+  if (!message) return;
 
-    const userBubble = document.createElement("div");
-    userBubble.classList.add("chat-bubble", "user");
-    userBubble.textContent = message;
-    chatBox.appendChild(userBubble);
-    chatBox.scrollTop = chatBox.scrollHeight;
+  // 💥 Remove the intro message if it exists
+  const intro = document.getElementById("intro");
+  if (intro) intro.remove();
+
+  const userBubble = document.createElement("div");
+  userBubble.classList.add("chat-bubble", "user");
+  userBubble.textContent = message;
+  chatBox.appendChild(userBubble);
+  chatBox.scrollTop = chatBox.scrollHeight;
+
 
     userInput.value = "";
 
