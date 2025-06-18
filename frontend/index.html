@@ -16,14 +16,13 @@
       height: 100vh;
     }
 
-.logo-wrap {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  position: relative;
-  margin-left: 12px; /* 👈🏽 This scoots Lisa over */
-}
-
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      margin-left: 12px;
+    }
 
     .logo {
       font-size: 43px;
@@ -42,23 +41,22 @@
       filter: hue-rotate(330deg) saturate(2);
     }
 
-.claude-logo {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  background-color: #ffffff;
-  border: 0.65px solid ##3F3f3f;
-  color: #111827;
-  padding: 4px 8px;
-  border-radius: 6px;
-  position: absolute;
-  top: 16px;
-  right: 32px;
-  opacity: 0.9;
-  box-shadow: 0px 1px 2px rgba(0,0,0,0.03);
-  z-index: 10;
-}
-
+    .claude-logo {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      background-color: #ffffff;
+      border: 0.65px solid #3F3F3F;
+      color: #111827;
+      padding: 4px 8px;
+      border-radius: 6px;
+      position: absolute;
+      top: 16px;
+      right: 32px;
+      opacity: 0.9;
+      box-shadow: 0px 1px 2px rgba(0,0,0,0.03);
+      z-index: 10;
+    }
 
     .claude-logo .star {
       color: #D97858;
@@ -79,14 +77,13 @@
       max-height: calc(100vh - 160px);
       padding: 24px 32px;
       background-color: #FAF9F5;
-      border: 1.15px solid ##B5B5B5;
+      border: 1.15px solid #B5B5B5;
       border-radius: 8px;
       overflow: hidden;
       width: 100%;
       max-width: 970px;
     }
 
- 
     .chat-bubble {
       font-family: 'Fira Code', monospace;
       font-size: 13px;
@@ -120,57 +117,54 @@
       border-top-left-radius: 0;
     }
 
-   .chat-scroll {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  flex: 1;
-  overflow-y: auto;
-  padding-right: 16px; /* Adds spacing between content and edge */
-  margin-bottom: 16px;
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: #3F3F3F transparent;
-}
+    .chat-scroll {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 16px;
+      margin-bottom: 16px;
+      scrollbar-width: thin;
+      scrollbar-color: #3F3F3F transparent;
+    }
 
-/* Chrome, Edge, Safari scrollbar customization */
-.chat-scroll::-webkit-scrollbar {
-  width: 8px;
-}
+    .chat-scroll::-webkit-scrollbar {
+      width: 8px;
+    }
 
-.chat-scroll::-webkit-scrollbar-track {
-  background: transparent;
-}
+    .chat-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
 
-.chat-scroll::-webkit-scrollbar-thumb {
-  background-color: #3F3F3F;
-  border-radius: 4px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
+    .chat-scroll::-webkit-scrollbar-thumb {
+      background-color: #3F3F3F;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
 
-.chat-scroll:hover::-webkit-scrollbar-thumb {
-  opacity: 1;
-}
+    .chat-scroll:hover::-webkit-scrollbar-thumb {
+      opacity: 1;
+    }
 
-.typewriter {
-  overflow: hidden;
-  white-space: nowrap;
-  display: inline-block;
-  animation: typewriter 2.8s steps(48, end), blinkOut 1.5s step-end 1 forwards;
-  border-right: 1.5px solid black;
-}
+    .typewriter {
+      overflow: hidden;
+      white-space: nowrap;
+      display: inline-block;
+      animation: typewriter 2.8s steps(48, end), blinkOut 1.5s step-end 1 forwards;
+      border-right: 1.5px solid black;
+    }
 
-@keyframes blinkOut {
-  0%, 50% { border-right-color: rgba(0, 0, 0, 0.8); }
-  100% { border-right-color: transparent; }
-}
-
+    @keyframes blinkOut {
+      0%, 50% { border-right-color: rgba(0, 0, 0, 0.8); }
+      100% { border-right-color: transparent; }
+    }
 
     @keyframes typewriter {
       from { width: 0; }
       to { width: 100%; }
     }
-
 
     .intro-message {
       font-family: 'Fira Code', monospace;
@@ -236,9 +230,6 @@
     <main>
       <div class="chat-scroll" id="chat-box">
         <div id="intro" class="intro-message">
-  <span class="typewriter"><strong>Hello! I’m <span>Lisa</span>, your intelligent lab assistant. Got any questions?</strong></span>
-</div>
-
           <span class="typewriter"><strong>Hello! I’m <span>Lisa</span>, your intelligent lab assistant. Got any questions?</strong></span>
         </div>
       </div>
