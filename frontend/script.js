@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
     { date: "7/19/24", name: "sperm freeze media", qty: "2 boxes", id: "Origio ART-8022" },
     { date: "7/19/24", name: "15 mL conical vials", qty: "1 case", id: "IVF Store 0030122151-MEA" },
     { date: "8/5/24", name: "5 mL pipettes", qty: "2 cases", id: "IVF STORE 0030127714-MEA" },
-    // Add the rest as needed...
   ];
 
   sendBtn.addEventListener("click", sendMessage);
@@ -54,12 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const message = userInput.value.trim();
     if (!message) return;
 
-    console.log("Sending:", message);
     addMessage(message, true);
     userInput.value = "";
 
-    // Add context/personality to the first message
-    const personalityIntro = `You are LISA: the Laboratory Inventory and Supply Chain Assistant. You're robotic, smart, and a little sassy. When the user asks for things like Item ID, quantity, etc., please answer the question with no additional fluff. You have access to the following inventory data:\n${inventoryData.map(item => `• ${item.date}: ${item.name} (${item.qty}, ${item.id})`).join("\n")}`;
+    const personalityIntro = `You are LISA: the Laboratory Inventory and Supply Chain Assistant. You're robotic, smart, and a little sassy. When the user asks for things like Item ID, quantity, etc., answer directly and clearly. You have access to this inventory:\n${inventoryData.map(item => `• ${item.date}: ${item.name} (${item.qty}, ${item.id})`).join("\n")}`;
 
     try {
       const res = await fetch("/ask-lisa", {
@@ -70,44 +67,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const data = await res.json();
       console.log("Response:", data);
-if (data.reply) {
-  // Show "Lisa is typing..." message
-  const typingIndicator = document.createElement("div");
-  typingIndicator.classList.add("chat-bubble", "lisa", "typing");
-  typingIndicator.textContent = "Lisa is typing...";
-  chatBox.appendChild(typingIndicator);
-  chatBox.scrollTop = chatBox.scrollHeight;
 
-  // Simulate delay, then replace with typewriter effect
-  setTimeout(() => {
-    typingIndicator.remove(); // remove typing...
+      if (data.reply) {
+        const typingIndicator = document.createElement("div");
+        typingIndicator.classList.add("chat-bubble", "lisa", "typing");
+        typingIndicator.textContent = "Lisa is typing...";
+        chatBox.appendChild(typingIndicator);
+        chatBox.scrollTop = chatBox.scrollHeight;
 
-    const bubble = document.createElement("div");
-    bubble.classList.add("chat-bubble", "lisa");
-    chatBox.appendChild(bubble);
+        setTimeout(() => {
+          typingIndicator.remove();
 
-    let i = 0;
-    function typeWriter() {
-      if (i < data.reply.length) {
-        bubble.textContent += data.reply.charAt(i);
-        i++;
-        setTimeout(typeWriter, 20);
-      }
-    }
-    typeWriter();
-  }, 500); // typing... shown for 0.5 sec
-}
+          const bubble = document.createElement("div");
+          bubble.classList.add("chat-bubble", "lisa");
+          chatBox.appendChild(bubble);
 
-
-        let i = 0;
-        function typeWriter() {
-          if (i < data.reply.length) {
-            bubble.textContent += data.reply.charAt(i);
-            i++;
-            setTimeout(typeWriter, 20);
+          let i = 0;
+          function typeWriter() {
+            if (i < data.reply.length) {
+              bubble.textContent += data.reply.charAt(i);
+              i++;
+              setTimeout(typeWriter, 20);
+            }
           }
-        }
-        typeWriter();
+          typeWriter();
+        }, 500);
       } else {
         addMessage("⚠️ Lisa didn’t reply.");
       }
@@ -117,4 +101,3 @@ if (data.reply) {
     }
   }
 });
-
