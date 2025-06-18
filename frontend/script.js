@@ -70,11 +70,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const data = await res.json();
       console.log("Response:", data);
+if (data.reply) {
+  // Show "Lisa is typing..." message
+  const typingIndicator = document.createElement("div");
+  typingIndicator.classList.add("chat-bubble", "lisa", "typing");
+  typingIndicator.textContent = "Lisa is typing...";
+  chatBox.appendChild(typingIndicator);
+  chatBox.scrollTop = chatBox.scrollHeight;
 
-      if (data.reply) {
-        const bubble = document.createElement("div");
-        bubble.classList.add("chat-bubble");
-        chatBox.appendChild(bubble);
+  // Simulate delay, then replace with typewriter effect
+  setTimeout(() => {
+    typingIndicator.remove(); // remove typing...
+
+    const bubble = document.createElement("div");
+    bubble.classList.add("chat-bubble", "lisa");
+    chatBox.appendChild(bubble);
+
+    let i = 0;
+    function typeWriter() {
+      if (i < data.reply.length) {
+        bubble.textContent += data.reply.charAt(i);
+        i++;
+        setTimeout(typeWriter, 20);
+      }
+    }
+    typeWriter();
+  }, 500); // typing... shown for 0.5 sec
+}
+
 
         let i = 0;
         function typeWriter() {
