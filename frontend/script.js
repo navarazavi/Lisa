@@ -7,15 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
   userInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") sendMessage();
   });
-
-  function addMessage(text, isUser = false) {
-    const bubble = document.createElement("div");
-    bubble.classList.add("chat-bubble");
-    if (isUser) bubble.style.backgroundColor = "#D9D9D9";
-    bubble.textContent = text;
-    chatBox.appendChild(bubble);
-    chatBox.scrollTop = chatBox.scrollHeight;
-  }
+function addMessage(text, isUser = false) {
+  const bubble = document.createElement("div");
+  bubble.classList.add("chat-bubble", isUser ? "user" : "lisa");
+  bubble.textContent = text;
+  chatBox.appendChild(bubble);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
 
   async function sendMessage() {
     const message = userInput.value.trim();
