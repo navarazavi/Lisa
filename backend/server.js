@@ -40,8 +40,12 @@ app.post("/ask-lisa", async (req, res) => {
   const { message } = req.body;
   if (!message) return res.status(400).json({ error: "Message is required" });
 
+  // 🔧 Map using actual keys from your JSON file
   const inventoryString = inventoryData.map(item => {
-    const { date = "unknown", name = "unnamed item", qty = "N/A", id = "N/A" } = item;
+    const date = item["Date"] || "unknown";
+    const name = item["Item Name"] || "unnamed item";
+    const qty = item["Quantity"] || "N/A";
+    const id = item["Item ID"] || "N/A";
     return `• ${date}: ${name} (${qty}, ${id})`;
   }).join("\n");
 
