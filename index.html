@@ -73,20 +73,27 @@
       margin-right: 4px;
     }
 
-main {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  max-height: calc(100vh - 160px); /* let it size dynamically */
-  padding: 24px 32px;
-  background-color: #FAF9F5;
-  border: 1.15px solid #3F3F3F;
-  margin: 0 20px 20px 20px; /* ADD BOTTOM MARGIN for space */
-  border-radius: 8px;
-  box-shadow: inset 0 0 2px rgba(0,0,0,0.03);
-  overflow: hidden;
-}
+    .main-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 0 20px 20px;
+      flex-grow: 1;
+    }
 
+    main {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      max-height: calc(100vh - 160px);
+      padding: 24px 32px;
+      background-color: #FAF9F5;
+      border: 1.15px solid #3F3F3F;
+      border-radius: 8px;
+      box-shadow: inset 0 0 2px rgba(0,0,0,0.03);
+      overflow: hidden;
+      width: 100%;
+      max-width: 840px;
+    }
 
     .chat-scroll {
       flex: 1;
@@ -158,16 +165,17 @@ main {
     <div class="claude-logo"><span class="star">✴︎</span> Claude Sonnet 4</div>
   </header>
 
-  <main>
-    <div class="chat-scroll">
-      <div class="chat-bubble">Hello! I'm Lisa, your intelligent lab assistant. Got any questions?</div>
-    </div>
-
-    <div class="input-row">
-      <input type="text" placeholder="Type a message . . ." />
-      <button class="send-button" aria-label="Send message">↑</button>
-    </div>
-  </main>
+  <div class="main-wrap">
+    <main>
+      <div class="chat-scroll">
+        <div class="chat-bubble">Hello! I'm Lisa, your intelligent lab assistant. Got any questions?</div>
+      </div>
+      <div class="input-row">
+        <input type="text" placeholder="Type a message . . ." />
+        <button class="send-button" aria-label="Send message">↑</button>
+      </div>
+    </main>
+  </div>
 </body>
 </html>
 
