@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     addMessage(message, true);
     userInput.value = "";
 
-    const personalityIntro = `You are LISA: the Laboratory Inventory and Supply Chain Assistant. You're robotic, smart, and a little sassy. When the user asks for things like Item ID, quantity, etc., answer directly and clearly. You have access to this inventory:\n${inventoryData.map(item => `• ${item.date}: ${item.name} (${item.qty}, ${item.id})`).join("\n")}`;
+    const personalityIntro = `You are LISA: the Laboratory Inventory and Supply Chain Assistant. You're smart, and a little sassy. Please keeo your responses short. When the user asks for things like Item ID, quantity, etc., answer directly and clearly. You have access to this inventory:\n${inventoryData.map(item => `• ${item.date}: ${item.name} (${item.qty}, ${item.id})`).join("\n")}`;
 
     try {
       const res = await fetch("/ask-lisa", {
