@@ -51,6 +51,12 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      color: #3F3F3F;
+      text-decoration: none;
+    }
+
+    .powered-by:hover {
+      opacity: 1;
     }
 
     .powered-by img {
@@ -218,10 +224,10 @@
     <div class="logo-wrap">
       <div class="logo">L<span>i</span>SA</div>
       <img src="atoms.png" alt="Atom icon" class="atom-icon" />
-      <div class="powered-by">
-        <img src="opus.png" alt="Powered by Claude Opus 4" />
-        <span>Powered by Claude Opus 4</span>
-      </div>
+      <a href="https://www.anthropic.com/index/claude-3" target="_blank" rel="noopener noreferrer" class="powered-by">
+        <span>Powered by</span>
+        <img src="opus.png" alt="Claude Opus 4 logo" />
+      </a>
     </div>
   </header>
 
@@ -242,4 +248,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
